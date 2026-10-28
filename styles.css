@@ -1,0 +1,331 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,800&family=Inter:wght@400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+section {
+    scroll-margin-top: 80px;
+}
+
+:root {
+    --primaria: #1e90ff;
+    --secundaria: #4db8ff;
+    --escuro: #111111;
+    --maisEscuro: #000000;
+    --claro: #eaf4ff;
+    --vidro: rgba(255, 255, 255, 0.1);
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--maisEscuro);
+    background-image:
+        radial-gradient(circle at 15% 15%, rgba(30, 144, 255, 0.25), transparent 45%),
+        radial-gradient(circle at 85% 50%, rgba(77, 184, 255, 0.18), transparent 45%),
+        radial-gradient(circle at 20% 90%, rgba(30, 144, 255, 0.2), transparent 45%);
+    background-attachment: fixed;
+    color: var(--claro);
+}
+
+/* ---------- NAVEGAÇÃO ---------- */
+
+.navegacao {
+    position: fixed;
+    top: 0;
+    background: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    z-index: 100;
+    padding: 1.5rem;
+}
+
+.menu {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 3rem;
+}
+
+.menu-link {
+    text-decoration: none;
+    color: var(--claro);
+    font-weight: 500;
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.menu-link::after {
+    content: '';
+    height: 2px;
+    width: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(90deg, var(--primaria), var(--secundaria));
+    transition: width 0.5s ease;
+}
+
+.menu-link:hover::after {
+    width: 100%;
+}
+
+/* ---------- CABEÇALHO ---------- */
+
+.cabecalho-moldura {
+    min-height: auto;
+    display: flex;
+    align-items: center;
+    padding-top: 80px;
+    border-top: 1px solid rgba(30, 144, 255, 0.35);
+    border-bottom: 1px solid rgba(30, 144, 255, 0.35);
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.cabecalho {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    align-items: center;
+    gap: 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 3rem;
+}
+
+.cabecalho-texto {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.cabecalho-eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--secundaria);
+    margin-bottom: 1.5rem;
+}
+
+.cabecalho-eyebrow::before {
+    content: '';
+    width: 40px;
+    height: 1px;
+    background: var(--secundaria);
+}
+
+h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.1;
+    font-weight: 800;
+    color: var(--claro);
+    margin: 0 0 1rem;
+}
+
+h1 .destaque {
+    display: block;
+    background: linear-gradient(90deg, var(--primaria), var(--secundaria));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cabecalho-sub-titulo {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: rgba(234, 244, 255, 0.75);
+    max-width: 420px;
+}
+
+.foto-capa {
+    width: 100%;
+    max-width: 340px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    justify-self: end;
+    border-radius: 24px;
+    border: 1px solid var(--vidro);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+}
+
+/* ---------- SOBRE ---------- */
+
+.sobre {
+    padding: 6rem 2rem;
+}
+
+.sobre-titulo {
+    font-size: 3rem;
+    color: var(--claro);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.sobre-caixa {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 16px;
+    border: 1px solid var(--vidro);
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.sobre-paragrafo {
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+/* ---------- O Oque Fazemos ---------- */
+
+.oquefazemos {
+    padding: 6rem 2rem;
+}
+
+.oquefazemos-titulo {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+.oquefazemos-caixa {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.oquefazemos-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--vidro);
+    overflow: hidden;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.oquefazemos-card:hover {
+    box-shadow: 0 10px 20px rgba(30, 144, 255, 0.2);
+    transform: translateY(-10px) scale(1.03);
+}
+
+.caixa-oquefazemos {
+    padding: 1.5rem;
+}
+
+.oquefazemos-imagem {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.info-oquefazemos {
+    margin-bottom: 5px;
+}
+
+.paragrafo-oquefazemos {
+    color: rgba(226, 232, 240, 0.8);
+    line-height: 1.25rem;
+}
+
+/* ---------- AGENDAR ---------- */
+
+.agendar {
+    padding: 6rem 2rem;
+}
+
+.agendar-titulos {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+}
+
+.formulario-agenda {
+    max-width: 600px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border: 1px solid var(--vidro);
+    border-radius: 16px;
+}
+
+.campo-agenda {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    color: var(--claro);
+    border: 1px solid var(--vidro);
+    outline: none;
+}
+
+.campo-agenda:focus {
+    border-color: var(--secundaria);
+    box-shadow: 0 0 10px rgba(30, 144, 255, 0.3);
+}
+
+textarea.campo-agenda {
+    resize: none;
+}
+
+.botao-form {
+    color: var(--claro);
+    background: linear-gradient(45deg, var(--primaria), var(--secundaria));
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    transition: all 0.5s ease;
+}
+
+.botao-form:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(30, 144, 255, 0.4);
+}
+
+/* ---------- RESPONSIVO ---------- */
+
+@media (max-width: 900px) {
+    .cabecalho {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 2.5rem;
+    }
+
+    .cabecalho-texto {
+        align-items: center;
+    }
+
+    .foto-capa {
+        justify-self: center;
+        order: -1;
+        max-width: 320px;
+    }
+}
+
+@media (max-width: 600px) {
+    .menu {
+        gap: 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .navegacao {
+        padding: 1rem;
+    }
+}

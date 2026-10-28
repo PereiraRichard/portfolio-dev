@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Portifolio-dev</title>
+</head>
+
+<body>
+    <nav class="navegacao">
+        <ul class="menu">
+            <li>
+                <a href="#inicio" class="menu-link">Início</a>
+            </li>
+            <li>
+                <a href="#sobre" class="menu-link">Sobre</a>
+            </li>
+            <li>
+                <a href="#oquefazemos" class="menu-link">O Que Fazemos</a>
+            </li>
+            <li>
+                <a href="#agendar" class="menu-link">Agendar</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main id="inicio" class="cabecalho-moldura">
+        <div class="cabecalho">
+            <div class="cabecalho-texto">
+                <span class="cabecalho-eyebrow">Desenvolvimento web</span>
+                <h1>
+                    Soluções digitais
+                    <span class="destaque">sob medida para o seu negócio</span>
+                </h1>
+                <p class="cabecalho-sub-titulo">
+                    Conheça meu portfólio, veja os trabalhos já realizados e agende uma conversa
+                </p>
+            </div>
+
+            <img src="img/logo.png" alt="Logo" class="foto-capa">
+        </div>
+    </main>
+
+    <section id="sobre" class="sobre">
+        <h2 class="sobre-titulo">Sobre</h2>
+        <div class="sobre-caixa">
+            <p class="sobre-paragrafo">Conheça alguns dos projetos que desenvolvi. Cada trabalho une design,
+                funcionalidade e atenção aos detalhes para entregar resultados reais.</p>
+        </div>
+    </section>
+
+    <section id="oquefazemos" class="oquefazemos">
+        <h2 class="oquefazemos-titulo">O que Fazemos</h2>
+        <div class="oquefazemos-caixa">
+            <div class="oquefazemos-card">
+                <img src="img/html.png" alt="Do HTML ao site completo" class="oquefazemos-imagem">
+                <div class="caixa-oquefazemos">
+                    <h3 class="info-oquefazemos">Do HTML ao site completo</h3>
+                    <p class="paragrafo-oquefazemos">Desenvolvo páginas rápidas, responsivas e feitas sob medida para o
+                        seu negócio</p>
+                </div>
+            </div>
+
+            <div class="oquefazemos-card">
+                <img src="img/projeto.png" alt="Planejamento do projeto" class="oquefazemos-imagem">
+                <div class="caixa-oquefazemos">
+                    <h3 class="info-oquefazemos">Vamos planejar o seu projeto?</h3>
+                    <p class="paragrafo-oquefazemos">Escolha o melhor dia e horário e agende uma conversa para tirarmos
+                        a sua ideia do papel</p>
+                </div>
+            </div>
+
+            <div class="oquefazemos-card">
+                <img src="img/tecnologia.png" alt="Tecnologia para cada necessidade" class="oquefazemos-imagem">
+                <div class="caixa-oquefazemos">
+                    <h3 class="info-oquefazemos">Tecnologia para cada necessidade</h3>
+                    <p class="paragrafo-oquefazemos">Trabalho com diversas linguagens para entregar a solução certa
+                        para o seu projeto</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="agendar" class="agendar">
+        <h2 class="agendar-titulos">Agendar</h2>
+        <form class="formulario-agenda" id="form-agenda" onsubmit="enviarWhats(event)">
+            <div class="nome-agenda">
+                <input placeholder="Nome" class="campo-agenda" id="nome" required>
+            </div>
+            <div class="grupo-agenda">
+                <textarea class="campo-agenda" placeholder="Digite sua Mensagem" rows="4" id="mensagem"
+                    required></textarea>
+            </div>
+
+            <button type="submit" class="botao-form">Enviar WhatsApp</button>
+        </form>
+    </section>
+
+    <script>
+        function enviarWhats(event) {
+            event.preventDefault();
+            const nome = document.getElementById('nome').value;
+            const mensagem = document.getElementById('mensagem').value;
+            const telefone = '553598071150';
+
+            const texto = `Olá! Me chamo ${nome}, ${mensagem}`;
+            const msgFormatada = encodeURIComponent(texto);
+            const url = `https://wa.me/${telefone}?text=${msgFormatada}`;
+            window.open(url, '_blank');
+        }
+    </script>
+
+</body>
+
+</html>
